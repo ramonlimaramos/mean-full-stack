@@ -9,7 +9,7 @@ module.exports = function() {
 	var app = express();
 
 		// exemplo de variavel de ambiente
-		app.set('port', 3000);
+		app.set('port', 4000);
 
 		// template engine como variabel de ambiente no express
 		app.set('view engine', 'ejs');
@@ -25,6 +25,7 @@ module.exports = function() {
 		app.use(require('method-override')()); //navegadores com problema de leitura PUT e DELETE
 
 		// carregamento de instancias da pasta ./app automatiza os require
+		// quando utilizar embedd docs descrever a sequencia dos models/modelname1 then models/modelname2 etc ...
 		load('models', {cwd: 'app'})
 			.then('controllers')
 			.then('routes')
